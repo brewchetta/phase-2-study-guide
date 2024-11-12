@@ -9,6 +9,7 @@
 
 // 2. What is the virtual DOM? //
 
+```
 function GreetingHeader() {
     const [greeting, setGreeting] = useState('Hello')
     
@@ -20,19 +21,23 @@ function GreetingHeader() {
         </div>
     )
 }
+```
 
 // VIRTUAL DOM - our little translator blackbox - the real time processor that helps us change what is rendered (what the user the sees)
-{/* <div>
+```
+<div>
     <h1>Hola</h1>
-</div> */}
+</div>
+```
 
 // and adds it to the real DOM
 
 // REAL DOM
-{/* <div>
+```
+<div>
     <h1>Hola</h1>
-</div> */}
-
+</div>
+```
 
 // 3. What is a component? What does it mean that we can make a component tree? //
 
@@ -49,6 +54,7 @@ function GreetingHeader() {
 // a component can take in props --> a property is passed down from a parent to a child for that child to use
 // similar to an argument in a function
 
+```
 function Parent() {
     const someProp = "I am a prop"
 
@@ -65,7 +71,9 @@ function Child({ someProp, secondProp }) { /* RECEIVING THE PROP */
         <p>{someProp}</p>
     )
 }
+```
 
+```
 // props = { someProp: 'I am a prop', secondProp: 'second prop' }
 function Child(props) { /* RECEIVING THE PROP */
 
@@ -75,22 +83,27 @@ function Child(props) { /* RECEIVING THE PROP */
         <p>{props.someProp}</p>
     )
 }
+```
 
 
 // 5. What is state? Why do we use it? What two things does `useState` create? //
 
 // useState is a hook that creates the GETTER VARIABLE and the SETTER FUNCTION
-const [hamburger, setHamburger] = useState('initial value')
+`const [hamburger, setHamburger] = useState('initial value')`
 // useState takes in an argument for the initial value
 
 // VERY BIG TOOL FOR REACT DECLARATIVE PROGRAMMING
 // change the values triggers a RERENDER <----- THIS IS REALLY IMPORTANT
+```
 setHamburger('bbq burger')
 hamburger => 'bbq burger'
+```
 
 // the SETTER can take in a new value OR it can take in a function
+```
 setHamburger('bbq burger') //>>> changes the value to 'bbq burger'
 setHamburger(previousHamburgerState => previousHamburgerState.toUpperCase())
+```
 // once the setter triggers the getter becomes the value returned by the setter's callback function
 
 setArray(previousArray => [...previousArray, 'cheeseburger'])
@@ -108,6 +121,7 @@ setArray(previousArray => [...previousArray, 'cheeseburger'])
 // useful for managing any activities outside the scope of the component function
 // can be helpful for managing effects / events that happen as part of a rerender (or initial render)
 
+```
 useEffect(() => {
     const response = await fetch('localhost:3000')
     const data = await response.json()
@@ -117,6 +131,7 @@ useEffect(() => {
 useEffect(() => {
     console.log("HELLO!")
 }, [hamburger]) // THIS USEEFFECT WILL TRIGGER ON THE FIRST RENDER AND EVERY TIME HAMBURGER CHANGES
+```
 
 
 // 7. What is a controlled form (or controlled component)? Why do we build controlled forms / components? //
@@ -130,6 +145,7 @@ useEffect(() => {
 // add an onChange function for the input to use the SETTER
 // value is the state GETTER
 
+```
 function ControlledForm() {
 
     const [hamburger, setHamburger] = useState('') // tied to the form input
@@ -144,11 +160,13 @@ function ControlledForm() {
     )
 
 }
+```
 
 
 // 8. How do we create routes with react-router-dom? What is `<Outlet />` used for? What are route params? What does `useNavigate` allow us to do? //
 
 // routes is an array of objects --> each object is a path & element
+```
 const routes = [
     {
         path: '/',
@@ -193,5 +211,6 @@ function Lunch() {
     )
 
 }
+```
 
 // example of useNavigate is using it to navigate away from a page after successfully submitting a form on that page
