@@ -5,7 +5,7 @@
 // imperative is when you go step by step
 // declarative is when you tell it what you want to happen and it figures out the steps
 // vanilla js and the DOM is imperative
-// react is imperative (uses jsx to put elements on the page)
+// react is declarative (uses jsx to put elements on the page)
 
 // 2. What is the virtual DOM? //
 
